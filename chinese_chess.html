@@ -22,22 +22,66 @@
             align-items: center;
         }
 
+
+
         #board {
             width: 80vmin;
             height: 88vmin;
             padding: 2vmin;
-            border: 1px solid #000;
-            border-radius: 0.7%;
+            border: 3px solid rgb(252, 163, 31);
+            border-radius: 0.8%;
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #chessB1 {
+            width: 93%;
+            height: 93%;
+            position: absolute;
+            background: rgba(192, 205, 255, 0.226);
+            z-index: 1;
 
             display: flex;
             justify-content: space-between;
         }
 
+        #inner {
+            width: 90%;
+            height: 90%;
+            /* border: 1px solid #000; */
+        }
+
+        #black {
+            width: calc(100% - 2px);
+            height: calc(4 / 9 * 100% - 2px);
+            border: 1px solid #000;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #black :nth-child(1) {
+            /* border-left: 2px solid #000;
+            border-left: 1px solid #000; */
+        }
+
+        .box {
+            width: calc(1 / 8 * 100%);
+            height: calc(1 / 4 * 100%);
+            border: 1px solid #000;
+        }
+
+
         .test {
-            width: 7vmin;
-            height: 7vmin;
+            width: 6.5vmin;
+            height: 6.5vmin;
             border: 1px solid #000;
             border-radius: 50%;
+            /* position: absolute;
+            z-index: 1; */
+
         }
     </style>
 
@@ -45,17 +89,44 @@
 
 <body>
     <div id="board">
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
-        <div class="test"></div>
+        <div id="chessB1">
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+        </div>
+        <div id="inner">
+            <div id="black">
 
+            </div>
+            <div id="middle"></div>
+            <div id="red"></div>
+        </div>
+        <!-- 
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div> -->
     </div>
+
+
+    <script>
+        const black = document.getElementById("black");
+
+        for (let i = 0; i < 32; i++) {
+            black.innerHTML += `<div class="box"></div>`;
+        }
+    </script>
 </body>
 
 </html>
