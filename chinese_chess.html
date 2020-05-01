@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             list-style: none;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, '微軟正黑體';
         }
 
@@ -20,11 +21,41 @@
             justify-content: center;
             align-items: center;
         }
+
+        #board {
+            width: 80vmin;
+            height: 88vmin;
+            padding: 2vmin;
+            border: 1px solid #000;
+            border-radius: 0.7%;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .test {
+            width: 7vmin;
+            height: 7vmin;
+            border: 1px solid #000;
+            border-radius: 50%;
+        }
     </style>
+
 </head>
 
 <body>
+    <div id="board">
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
 
+    </div>
 </body>
 
 </html>
