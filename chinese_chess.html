@@ -11,7 +11,7 @@
             padding: 0;
             list-style: none;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, '微軟正黑體';
+            font-family: Brush Script MT, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, '微軟正黑體';
         }
 
         body {
@@ -28,26 +28,25 @@
             width: 80vmin;
             height: 88vmin;
             padding: 2vmin;
-            border: 3px solid rgb(252, 163, 31);
+            border: 0.6vmin solid rgb(255, 204, 128);
             border-radius: 0.8%;
+            background-color: rgb(212, 26, 26);
+            /* box-shadow: 0.1vmin 0.1vmin 0.2vmin rgb(143, 78, 18); */
 
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         /* 棋子是獨立 z */
         #chessB1 {
             width: calc(100% + 6.5vmin);
-            /* width: 93.3%; */
-            /* height: 93.3%; */
-            background: rgba(192, 205, 255, 0.226);
+            /* background: rgba(192, 205, 255, 0.226); */
             position: absolute;
             top: calc(-6.5vmin / 2);
             left: calc(-6.5vmin / 2);
-            /* top: calc(5.5% - 2vmin); */
-            /* transform: translate(0, -5%); */
             z-index: 1;
 
             display: flex;
@@ -56,13 +55,9 @@
 
         #chessB2 {
             width: calc(100%);
-            /* width: calc(88% - 2vmin); */
-            background: rgba(192, 205, 255, 0.226);
+            /* background: rgba(192, 205, 255, 0.226); */
             position: absolute;
             top: calc(30% + 6.5vmin / 2);
-            /* left: calc(-6.5vmin / 2); */
-            /* top: calc(25% - 2vmin); */
-            /* transform: translate(0, -5%); */
             z-index: 1;
 
             display: flex;
@@ -71,13 +66,45 @@
 
         #chessB3 {
             width: calc(100% + 6.5vmin);
-            /* width: 93.3%; */
-            background: rgba(192, 205, 255, 0.226);
+            /* background: rgba(192, 205, 255, 0.226); */
             position: absolute;
             top: calc(55% + 6.5vmin / 2);
-            /* top: calc(33.5% - 2vmin); */
             left: calc(-6.5vmin / 2);
-            /* transform: translate(0, -5%); */
+            z-index: 1;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #chessR1 {
+            width: calc(100% + 6.5vmin);
+            /* background: rgba(192, 205, 255, 0.226); */
+            position: absolute;
+            bottom: calc(-6.5vmin / 2);
+            left: calc(-6.5vmin / 2);
+            z-index: 1;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #chessR2 {
+            width: calc(100%);
+            /* background: rgba(192, 205, 255, 0.226); */
+            position: absolute;
+            bottom: calc(30% + 6.5vmin / 2);
+            z-index: 1;
+
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #chessR3 {
+            width: calc(100% + 6.5vmin);
+            /* background: rgba(192, 205, 255, 0.226); */
+            position: absolute;
+            bottom: calc(55% + 6.5vmin / 2);
+            left: calc(-6.5vmin / 2);
             z-index: 1;
 
             display: flex;
@@ -88,13 +115,13 @@
             width: 90%;
             height: 90%;
             background: rgb(255, 228, 177);
-            /* border: 1px solid #000; */
+            /* border: 0.1vmin solid #000; */
         }
 
         #black {
             width: calc(100%);
             height: calc(4 / 9 * 100%);
-            border: 1px solid #000;
+            border: 0.1vmin solid #000;
             display: flex;
             flex-wrap: wrap;
 
@@ -104,95 +131,150 @@
         #middle {
             width: 100%;
             height: calc(1 / 9 * 100%);
-            border: 1.2px solid #000;
-            border-top: 0px;
-            border-bottom: 0px;
+            border: 0.2vmin solid #000;
+            border-top: 0;
+            border-bottom: 0;
             font-size: 5vmin;
-            line-height: 170%;
 
             display: flex;
             justify-content: space-around;
+            align-items: center;
         }
 
         #red {
             width: calc(100%);
             height: calc(4 / 9 * 100%);
-            border: 1px solid #000;
+            border: 0.1vmin solid #000;
             display: flex;
             flex-wrap: wrap;
+
+            position: relative;
         }
 
         .box {
             width: calc(1 / 8 * 100%);
             height: calc(1 / 4 * 100%);
-            border: 1px solid #000;
+            border: 0.1vmin solid #000;
         }
 
+        .red {
+            color: rgb(233, 0, 0);
+        }
 
         .round {
             width: 6.5vmin;
             height: 6.5vmin;
-            border: 1px solid #000;
+            background: rgb(255, 173, 79);
+            border: 0.2vmin solid #000;
             border-radius: 50%;
-            /* position: absolute;
-            z-index: 1; */
 
+            font-size: 4vmin;
+            font-weight: bold;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #black::before {
+            content: '';
+            width: calc(1 / 3 * 100% + 1vmin);
+            height: calc(1 / 1.5 * 100% + 1vmin);
+            border: 0.12vmin solid #000;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            position: absolute;
+            left: 20.6%;
+            top: 15%;
+            transform: rotate(44.5deg);
+            z-index: 0;
+        }
+
+        #black::after {
+            content: '';
+            width: calc(1 / 3 * 100% + 1.4vmin);
+            height: calc(1 / 1.5 * 100% + 1.4vmin);
+            border: 0.12vmin solid #000;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 0;
+            position: absolute;
+            left: 44.7%;
+            top: 15.5%;
+            transform: rotate(45.5deg);
+            z-index: 0;
+        }
+
+        #red::before {
+            content: '';
+            width: calc(1 / 3 * 100% + 1vmin);
+            height: calc(1 / 1.5 * 100% + 1vmin);
+            border: 0.12vmin solid #000;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            position: absolute;
+            left: 20.6%;
+            bottom: -35.3%;
+            transform: rotate(44.5deg);
+            z-index: 0;
+        }
+
+        #red::after {
+            content: '';
+            width: calc(1 / 3 * 100% + 1.4vmin);
+            height: calc(1 / 1.5 * 100% + 1.4vmin);
+            border: 0.12vmin solid #000;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 0;
+            position: absolute;
+            left: 44.7%;
+            bottom: -36.3%;
+            transform: rotate(45.5deg);
+            z-index: 0;
+        }
+
+        #sign {
+            position: absolute;
+            right: 1.2vmin;
+            bottom: 0.2vmin;
+            z-index: 3;
         }
     </style>
 
 </head>
 
 <body>
+    <!-- 棋盤範圍 -->
     <div id="board">
-        <!-- 黑棋位置 -->
-        <!-- <div id="chessB1">
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-        </div> -->
-        <!-- <div id="chessB2">
-            <div class="round"></div>
-            <div class="round"></div>
-        </div> -->
-        <!-- <div id="chessB3">
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-            <div class="round"></div>
-        </div> -->
-
         <!-- 內裡範圍 -->
         <div id="inner">
             <!-- 黑棋範圍 -->
             <div id="black">
                 <div id="chessB1">
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
+                    <div class="round">車</div>
+                    <div class="round">馬</div>
+                    <div class="round">象</div>
+                    <div class="round">士</div>
+                    <div class="round">將</div>
+                    <div class="round">士</div>
+                    <div class="round">象</div>
+                    <div class="round">馬</div>
+                    <div class="round">車</div>
                 </div>
                 <div id="chessB2">
-                    <div class="round"></div>
-                    <div class="round"></div>
+                    <div class="round">包</div>
+                    <div class="round">包</div>
                 </div>
                 <div id="chessB3">
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
-                    <div class="round"></div>
+                    <div class="round">卒</div>
+                    <div class="round">卒</div>
+                    <div class="round">卒</div>
+                    <div class="round">卒</div>
+                    <div class="round">卒</div>
                 </div>
             </div>
             <!-- 楚河漢界 -->
@@ -201,10 +283,35 @@
                 <div class="text">漢界</div>
             </div>
             <!-- 紅棋範圍 -->
-            <div id="red"></div>
+            <div id="red">
+                <div id="chessR1">
+                    <div class="round red">俥</div>
+                    <div class="round red">傌</div>
+                    <div class="round red">相</div>
+                    <div class="round red">仕</div>
+                    <div class="round red">帥</div>
+                    <div class="round red">仕</div>
+                    <div class="round red">相</div>
+                    <div class="round red">傌</div>
+                    <div class="round red">俥</div>
+                </div>
+                <div id="chessR2">
+                    <div class="round red">炮</div>
+                    <div class="round red">炮</div>
+                </div>
+                <div id="chessR3">
+                    <div class="round red">兵</div>
+                    <div class="round red">兵</div>
+                    <div class="round red">兵</div>
+                    <div class="round red">兵</div>
+                    <div class="round red">兵</div>
+                </div>
+            </div>
         </div>
-
+        <span id="sign">Alfred Dai</span>
     </div>
+    <span style="position: absolute;font-size: 5vmin;">⚔</span>
+
 
 
     <script>
