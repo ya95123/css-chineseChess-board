@@ -1,1 +1,1 @@
-css-qi-pan-ya95123
+https://ya95123.github.io/css-qi-pan/
